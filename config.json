@@ -1,10 +1,10 @@
 {
     "enable_honor_uniportal": true,
-    "honor_uniportal_login_url": "https://uniportal.ones.ncucoder.com/uniportal",
+    "honor_uniportal_login_url": "https://uniportal.ncucoder.com/uniportal",
     "honor_idaas_access_key": "",
     "honor_idaas_secret_key": "",
-    "honor_token_auth_url": "https://uniportal.ones.ncucoder.com/api/token/auth",
-    "honor_query_user_url": "https://uniportal.ones.ncucoder.com/api/user/query",
+    "honor_token_auth_url": "https://uniportal.ncucoder.com/api/token/auth",
+    "honor_query_user_url": "https://uniportal.ncucoder.com/api/user/query",
     "honor_iam_access_key": "",
     "honor_iam_secret_key": "",
     "honor_iam_project": "",

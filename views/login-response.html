@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<body>
+</body>
+
+<script language="JavaScript">
+    var redirect = "{{.redirect}}";
+    //不替换括号等特殊符号可以防止跳转页面时就执行javascript脚本
+    //redirect = redirect.replace(new RegExp('\&#40;','gm'),'(');
+    //redirect = redirect.replace(new RegExp('\&#41;','gm'),')');
+    //替换掉javascript:,即以"javascript:"开头的都认为有执行javascript脚本的意图
+    redirect = redirect.replace(new RegExp('\javascript:', 'gm'), '');
+    window.onload = function () {
+        window.open(redirect, "_self");
+    }
+</script>
