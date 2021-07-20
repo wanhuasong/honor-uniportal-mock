@@ -9,6 +9,16 @@ build-asset:
 		-o asset/asset.go \
 		views/...
 
+start:
+	nohup ./uniportal > ./uniportal.log 2>&1 &
+	ps aux | grep genericfs | grep -v grep
+
+log:
+	tail -f ./uniportal.log
+
+stop:
+	ps aux | grep uniportal | grep -v grep | awk '{print $$2}' | xargs kill -9
+
 upload:
 	rsync -v --progress uniportal new-marsdev:/tmp/uniportal/uniportal
 	rsync -v --progress config.json new-marsdev:/tmp/uniportal/config.json

@@ -8,7 +8,8 @@
     <title>Uniportal Login Form</title>
 
     <style>
-        #loginForm input {
+        #password,
+        #submit {
             margin-top: 5px;
         }
     </style>
@@ -20,8 +21,12 @@
         <input type="text" name="email" id="email" value="wanhuasong@hihonor.com"><br>
         <input type="password" name="password" id="password" value="hihonor123"><br>
         <input type="text" name="redirect" id="redirect" value="{{.redirect}}" style="display: none;">
-        <input type="submit">
+        <input type="submit" id="submit">
     </form>
+
+    <p>
+        <a href="https://github.com/wanhuasong/honor-uniportal-mock" target="_blank">honor-uniportal-mock</a>
+    </p>
 </body>
 
 </html>
