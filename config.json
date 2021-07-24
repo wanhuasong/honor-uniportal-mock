@@ -1,15 +1,17 @@
 {
     "enable_honor_uniportal": true,
-    "honor_uniportal_login_url": "https://uniportal.ncucoder.com/uniportal",
-    "honor_idaas_access_key": "",
-    "honor_idaas_secret_key": "",
-    "honor_token_auth_url": "https://uniportal.ncucoder.com/api/token/auth",
-    "honor_query_user_url": "https://uniportal.ncucoder.com/api/user/query",
-    "honor_iam_access_key": "",
-    "honor_iam_secret_key": "",
-    "honor_iam_project": "",
-    "honor_iam_enterprise": "",
-    "honor_internal_email_hosts": [
+    "honor_uniportal_login_url": "https://uniportal.myones.net/uniportal",
+    "honor_idaas_access_key": "46vuymaQz9YtIU1sNlXLCEFDrH3pJw05",
+    "honor_idaas_secret_key": "4CZgUIuJVHGNj5TmzM2RWw9KFQxt1esc",
+    "honor_token_auth_url": "https://uniportal.myones.net/api/idaas/token/auth",
+    "honor_query_user_url": "https://uniportal.myones.net/api/mdm/user/query",
+    "honor_iam_token_url": "https://uniportal.myones.net/api/iam/token/create",
+    "honor_iam_access_key": "DP52vaHmBcLquEJFb3fkprId764KO8sx",
+    "honor_iam_secret_key": "vQpYOZG3jh0wqJLmr2XMxiyPtUnsCWKu",
+    "honor_iam_project": "ones",
+    "honor_iam_enterprise": "ones",
+    "honor_internal_email_suffix": [
+        "example.com",
         "hihonor.com",
         "pmail.hihonor.com"
     ]

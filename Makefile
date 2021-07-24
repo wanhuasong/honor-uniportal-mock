@@ -2,7 +2,7 @@ run:
 	go run -trimpath main.go
 
 build:
-	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -o uniportal main.go
+	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -o bin/uniportal main.go
 
 build-asset:
 	go-bindata -pkg asset \
@@ -20,5 +20,5 @@ stop:
 	ps aux | grep uniportal | grep -v grep | awk '{print $$2}' | xargs kill -9
 
 upload:
-	rsync -v --progress uniportal new-marsdev:/tmp/uniportal/uniportal
+	rsync -v --progress bin/uniportal new-marsdev:/tmp/uniportal/uniportal
 	rsync -v --progress config.json new-marsdev:/tmp/uniportal/config.json

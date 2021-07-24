@@ -23,8 +23,9 @@ func Run() {
 
 	api := app.Party("/api")
 	api.Post("/uniportal/login", UniportalLogin)
-	api.Post("/iam/auth/token", GenerateIamToken)
-	api.Post("/idaas/auth", IdaasAuth)
+	api.Post("/iam/token/create", GenerateIamToken)
+	api.Post("/idaas/token/auth", IdaasAuth)
+	api.Post("/mdm/user/query", GetUserDetail)
 
 	app.Listen(":14501")
 }
