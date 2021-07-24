@@ -55,7 +55,7 @@ func IdaasAuth(ctx iris.Context) {
 
 	resp := IDaasAuthResponse{
 		AllProperties: IDaasAuthResponseProperties{
-			Mail:           "zhangsan@example.com",
+			Mail:           "hsowan@outlook.com",
 			EmployeeNumber: "12345678",
 		},
 	}
