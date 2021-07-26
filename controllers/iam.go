@@ -54,5 +54,6 @@ func GenerateIamToken(ctx iris.Context) {
 		AccessToken: "mockaccesstoken",
 		ExpiresIn:   86400,
 	}
+	ctx.StatusCode(http.StatusCreated)
 	ctx.JSON(&resp)
 }

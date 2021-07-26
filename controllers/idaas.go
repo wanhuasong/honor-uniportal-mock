@@ -53,12 +53,12 @@ func IdaasAuth(ctx iris.Context) {
 	}
 	log.Printf("IDaas req: %+v", req)
 
-	email := ctx.GetCookie(DataCookieEmail)
 	resp := IDaasAuthResponse{
 		AllProperties: IDaasAuthResponseProperties{
-			Mail:           email,
+			Mail:           req.Token.Sid,
 			EmployeeNumber: "12345678",
 		},
 	}
+	log.Printf("IDaas resp: %+v", resp)
 	ctx.JSON(&resp)
 }
