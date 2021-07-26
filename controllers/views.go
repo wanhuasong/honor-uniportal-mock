@@ -13,12 +13,17 @@ func ViewUniportalLogin(ctx iris.Context) {
 		return
 	}
 
-	redirect := ctx.URLParamEscape("redirect")
+	redirect := ctx.URLParam("redirect")
 	log.Printf("Found redirect url: %s", redirect)
 	ctx.ViewData("redirect", redirect)
 	ctx.View("uniportal-login-form.html")
 }
 
 func ViewUniportalHome(ctx iris.Context) {
-	ctx.View("home.html")
+	uid := ctx.GetCookie(AuthCookieUid)
+	if uid == "" {
+		ctx.Redirect("/uniportal")
+		return
+	}
+	ctx.View("index.html")
 }

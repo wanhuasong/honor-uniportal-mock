@@ -14,6 +14,7 @@ func Run() {
 
 	app.Get("/uniportal", ViewUniportalLogin)
 	app.Get("/home", ViewUniportalHome)
+	app.Get("/logout", Logout)
 
 	api := app.Party("/api")
 	api.Post("/uniportal/login", UniportalLogin)

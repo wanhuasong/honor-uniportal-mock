@@ -47,8 +47,35 @@ func UniportalLogin(ctx iris.Context) {
 	ctx.Header("Set-Cookie", authCookie(AuthCookieUid, AuthCookieValueUid))
 
 	redirect := ctx.FormValue("redirect")
+	if redirect == "" {
+		redirect = "/home"
+	}
 	ctx.ViewData("redirect", redirect)
 	ctx.View("login-response.html")
+}
+
+func Logout(ctx iris.Context) {
+	removeCookieWithDomain(ctx, AuthCookieAuthMethod, AuthCookieDomain)
+	removeCookieWithDomain(ctx, AuthCookieHwssoUniportal, AuthCookieDomain)
+	removeCookieWithDomain(ctx, AuthCookieHwssotinter, AuthCookieDomain)
+	removeCookieWithDomain(ctx, AuthCookieHwssotinter3, AuthCookieDomain)
+	removeCookieWithDomain(ctx, AuthCookieLogFlag, AuthCookieDomain)
+	removeCookieWithDomain(ctx, AuthCookieSid, AuthCookieDomain)
+	removeCookieWithDomain(ctx, AuthCookieSip, AuthCookieDomain)
+	removeCookieWithDomain(ctx, AuthCookieUid, AuthCookieDomain)
+	ctx.Redirect("/uniportal")
+}
+
+func removeCookieWithDomain(ctx iris.Context, name, domain string) {
+	cookie := &http.Cookie{
+		Name:     name,
+		Domain:   domain,
+		Value:    "",
+		Path:     "/",
+		HttpOnly: true,
+		Expires:  time.Now().Add(-time.Duration(1) * time.Minute),
+	}
+	ctx.SetCookie(cookie)
 }
 
 // 解决 ctx.SetCookieKV() / ctx.SetCookie() 无法设置跨域 cookie 的问题
