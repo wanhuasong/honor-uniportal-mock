@@ -32,6 +32,11 @@ const (
 
 func UniportalLogin(ctx iris.Context) {
 	email := ctx.FormValue("email")
+	if email == "" {
+		ctx.Redirect("/uniportal")
+		return
+	}
+
 	log.Printf("login email: %s", email)
 	password := ctx.FormValue("password")
 	log.Printf("login passoword: %s", password)
