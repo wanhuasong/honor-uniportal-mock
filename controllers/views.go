@@ -10,8 +10,8 @@ func ViewUniportalLogin(ctx iris.Context) {
 	redirect := ctx.URLParam("redirect")
 	log.Printf("Found redirect url: %s", redirect)
 
-	uid := ctx.GetCookie(AuthCookieUid)
-	if uid != "" {
+	sid := ctx.GetCookie(AuthCookieSid)
+	if sid != "" {
 		if redirect != "" {
 			ctx.ViewData("redirect", redirect)
 			ctx.View("login-response.html")
@@ -26,8 +26,8 @@ func ViewUniportalLogin(ctx iris.Context) {
 }
 
 func ViewUniportalHome(ctx iris.Context) {
-	uid := ctx.GetCookie(AuthCookieUid)
-	if uid == "" {
+	sid := ctx.GetCookie(AuthCookieSid)
+	if sid == "" {
 		ctx.Redirect("/uniportal")
 		return
 	}
