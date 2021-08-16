@@ -11,7 +11,7 @@ build-asset:
 
 start:
 	nohup ./uniportal > ./uniportal.log 2>&1 &
-	ps aux | grep genericfs | grep -v grep
+	ps aux | grep uniportal | grep -v grep
 
 log:
 	tail -f ./uniportal.log
