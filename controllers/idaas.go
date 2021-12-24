@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"github.com/wanhuasong/uniportal/db"
 	"log"
 	"net/http"
 
@@ -53,10 +54,14 @@ func IdaasAuth(ctx iris.Context) {
 	}
 	log.Printf("IDaas req: %+v", req)
 
+	number := "12345678"
+	if db.DefaultStore != nil {
+		number = db.DefaultStore.Get(StoreNumber)
+	}
 	resp := IDaasAuthResponse{
 		AllProperties: IDaasAuthResponseProperties{
 			Mail:           req.Token.Sid,
-			EmployeeNumber: "12345678",
+			EmployeeNumber: number,
 		},
 	}
 	log.Printf("IDaas resp: %+v", resp)

@@ -1,7 +1,7 @@
-run:
+run: build-asset
 	go run -trimpath main.go
 
-build:
+build: build-asset
 	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -o bin/uniportal main.go
 
 build-asset:
@@ -21,4 +21,3 @@ stop:
 
 upload:
 	rsync -v --progress bin/uniportal new-marsdev:/tmp/uniportal/uniportal
-	rsync -v --progress config.json new-marsdev:/tmp/uniportal/config.json

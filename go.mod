@@ -7,6 +7,8 @@ require (
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/imkira/go-interpol v1.1.0 // indirect
 	github.com/json-iterator/go v1.1.11 // indirect
+	github.com/juju/errors v0.0.0-20210818161939-5560c4c073ff // indirect
+	github.com/k8scat/bbolt v1.3.7 // indirect
 	github.com/kataras/iris/v12 v12.1.8
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect

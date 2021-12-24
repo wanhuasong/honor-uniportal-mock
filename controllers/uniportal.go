@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"fmt"
+	"github.com/wanhuasong/uniportal/db"
 	"log"
 	"net/http"
 	"time"
@@ -28,12 +29,17 @@ const (
 	AuthCookieValueUid            = "31303130F5553906EFFA0D3E5B2370C0A75080E2C3F7B139783FBFDEA06B2941A794BE623E1C986E31AABE17D628BB2ED7AE1755"
 
 	AuthCookieDomain = ".myones.net"
+
+	StoreName   = "honor_uniportal_name"
+	StoreNumber = "honor_uniportal_number"
 )
 
 type LoginForm struct {
 	Email    string `form:"email"`
 	Password string `form:"password"`
 	Redirect string `form:"redirect"`
+	Name     string `form:"name"`
+	Number   string `form:"number"`
 }
 
 func UniportalLogin(ctx iris.Context) {
@@ -58,6 +64,12 @@ func UniportalLogin(ctx iris.Context) {
 	ctx.Header("Set-Cookie", authCookie(AuthCookieSid, form.Email))
 	ctx.Header("Set-Cookie", authCookie(AuthCookieSip, AuthCookieValueSip))
 	ctx.Header("Set-Cookie", authCookie(AuthCookieUid, AuthCookieValueUid))
+
+	// 自定义姓名和工号
+	if db.DefaultStore != nil {
+		db.DefaultStore.Set(StoreName, form.Name)
+		db.DefaultStore.Set(StoreNumber, form.Number)
+	}
 
 	if form.Redirect == "" {
 		form.Redirect = "/home"

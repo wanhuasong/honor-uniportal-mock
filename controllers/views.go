@@ -22,7 +22,7 @@ func ViewUniportalLogin(ctx iris.Context) {
 	}
 
 	ctx.ViewData("redirect", redirect)
-	ctx.View("uniportal-login-form.html")
+	ctx.View("login.html")
 }
 
 func ViewUniportalHome(ctx iris.Context) {

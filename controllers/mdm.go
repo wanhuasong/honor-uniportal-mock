@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"github.com/wanhuasong/uniportal/db"
 	"log"
 	"net/http"
 
@@ -59,13 +60,17 @@ func GetUserDetail(ctx iris.Context) {
 	token := ctx.GetHeader(mdmAuthHeader)
 	log.Printf("MDM authorization token: %s", token)
 
+	name := "张三"
+	if db.DefaultStore != nil {
+		name = db.DefaultStore.Get(StoreName)
+	}
 	resp := UserDetailResponse{
 		Count:   1,
 		Status:  mdmResponseStatusOK,
 		Message: "ok",
 		Result: []UserDetail{
 			{
-				FullName: "张三",
+				FullName: name,
 			},
 		},
 	}
